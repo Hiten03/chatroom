@@ -1,0 +1,269 @@
+.navbarWrapper {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    background: var(--navbar-bg);
+    border-bottom: 1px solid var(--border-subtle);
+    transition: background 0.3s ease;
+}
+
+.navbar {
+    padding: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logoText {
+    margin-left: 10px;
+    font-family: 'Outfit', sans-serif;
+    background: linear-gradient(135deg, #0077ff, #00d2ff, #00ffb3);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+    filter: drop-shadow(0 0 8px rgba(0, 119, 255, 0.3));
+    animation: logoShimmer 3s ease-in-out infinite;
+}
+
+@keyframes logoShimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.logoutButton {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 59, 48, 0.08);
+    border: 1px solid rgba(255, 59, 48, 0.15);
+    padding: 8px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.logoutButton img {
+    width: 16px;
+    height: 16px;
+    opacity: 0.8;
+}
+
+.logoutButton span {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: rgba(255, 59, 48, 0.8);
+}
+
+.logoutButton:hover {
+    background: rgba(255, 59, 48, 0.15);
+    border-color: rgba(255, 59, 48, 0.35);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 59, 48, 0.15);
+}
+
+.logoutButton:hover span {
+    color: #ff3b30;
+}
+
+.navRight {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.navRight h3 {
+    color: var(--text-primary);
+}
+
+/* Theme Toggle */
+.themeToggle {
+    background: var(--bg-input);
+    border: 1px solid var(--border-subtle);
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.themeToggle:hover {
+    transform: rotate(20deg) scale(1.1);
+    border-color: var(--border-hover);
+    box-shadow: 0 2px 12px rgba(0, 119, 255, 0.15);
+}
+
+.avatar {
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #0077ff;
+    transition: border-color 0.3s ease;
+}
+
+.avatar:hover {
+    border-color: #00d2ff;
+}
+
+/* Avatar clickable wrapper */
+.avatarClickable {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.editBadge {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    font-size: 0.65rem;
+    background: rgba(30, 30, 40, 0.9);
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.avatarClickable:hover .editBadge {
+    opacity: 1;
+}
+
+/* Profile Edit Modal */
+.profileOverlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.profileModal {
+    background: rgba(30, 30, 40, 0.95);
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 30px;
+    width: 380px;
+    max-width: 90vw;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    animation: profileSlideIn 0.3s ease;
+}
+
+@keyframes profileSlideIn {
+    from { opacity: 0; transform: scale(0.95) translateY(10px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.profileTitle {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+
+.profileAvatarWrap {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    padding: 3px;
+    background: linear-gradient(135deg, #0077ff, #00d2ff);
+    overflow: hidden;
+}
+
+.profileAvatarImg {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profileUploadArea {
+    margin-bottom: 20px;
+}
+
+.profileFileInput {
+    display: none;
+}
+
+.profileUploadLabel {
+    display: inline-block;
+    color: #0077ff;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 12px;
+    border: 1px dashed rgba(0, 119, 255, 0.3);
+    transition: all 0.2s;
+}
+
+.profileUploadLabel:hover {
+    background: rgba(0, 119, 255, 0.1);
+    border-color: rgba(0, 119, 255, 0.5);
+}
+
+.profileActions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.profileCancelBtn {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 10px 22px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    transition: background 0.2s;
+}
+
+.profileCancelBtn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.profileSaveBtn {
+    background: linear-gradient(135deg, #0077ff, #00d2ff);
+    border: none;
+    color: #fff;
+    padding: 10px 28px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.profileSaveBtn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(0, 119, 255, 0.3);
+}
+
+.profileSaveBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}

@@ -1,0 +1,202 @@
+.card {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-subtle);
+    padding: 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: var(--shadow-card);
+    transition: all 0.3s ease;
+    color: var(--text-primary);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 119, 255, 0.3);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 119, 255, 0.1);
+}
+
+.speakers {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin: 20px 0;
+}
+
+.topic {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.avatars img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    padding: 2px; /* acts as border width */
+    background: linear-gradient(135deg, #00b09b, #96c93d); /* gradient border */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.avatars img:last-child {
+    top: 20px;
+    left: 20px;
+}
+
+.names {
+    margin-left: 100px;
+}
+
+.names span {
+    padding-bottom: 5px;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.peopleCount {
+    text-align: right;
+}
+
+.peopleCount span {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.singleSpeaker .avatars img {
+    position: initial;
+}
+
+.singleSpeaker .names {
+    margin-left: 20px;
+}
+
+/* Private Room Card */
+.privateCard {
+    border-color: rgba(255, 193, 7, 0.2);
+    position: relative;
+}
+
+.privateCard:hover {
+    border-color: rgba(255, 193, 7, 0.4);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 193, 7, 0.1);
+}
+
+.lockIcon {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    font-size: 1.1rem;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+}
+
+/* Password Prompt Modal */
+.passwordOverlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.passwordModal {
+    background: rgba(30, 30, 40, 0.95);
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 30px;
+    width: 380px;
+    max-width: 90vw;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from { opacity: 0; transform: scale(0.95) translateY(10px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.passwordModal h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+}
+
+.passwordModal p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 20px;
+}
+
+.passwordInput {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 12px 16px;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+.passwordInput:focus {
+    border-color: rgba(0, 119, 255, 0.5);
+}
+
+.passwordError {
+    color: #ff3b30;
+    font-size: 0.8rem;
+    margin-top: 8px;
+    font-family: 'Inter', sans-serif;
+}
+
+.passwordActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.passwordCancelBtn {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 10px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    transition: background 0.2s;
+}
+
+.passwordCancelBtn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.passwordJoinBtn {
+    background: linear-gradient(135deg, #00b09b, #96c93d);
+    border: none;
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.passwordJoinBtn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(0, 176, 155, 0.4);
+}

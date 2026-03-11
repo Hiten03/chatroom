@@ -1,0 +1,18 @@
+.input {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px 20px;
+    width: 250px;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 12px;
+    outline: none;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.input:focus {
+    border-color: #00d2ff;
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
+}

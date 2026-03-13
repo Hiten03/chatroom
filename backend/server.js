@@ -96,6 +96,7 @@ const corsOption = {
     origin: [process.env.FRONT_URL, 'http://localhost:3000'],
 };
 app.use(cors(corsOption));
+app.set('trust proxy', 1);
 app.use('/storage', express.static('storage'));
 
 const PORT = process.env.PORT || 5500;

@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "5500:5500"
+    environment:
+      - PORT=5500
+      - FRONT_URL=http://localhost:3000
+      # Configure your real DB and other variables in an .env file or here
+      # DB_URL=your_mongodb_url
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost:5500
+    depends_on:
+      - backend
